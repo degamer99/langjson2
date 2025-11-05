@@ -6,8 +6,8 @@ export interface Word {
 }
 
 export interface Flashcard extends Word {
-    mastery: number;
-    lastReviewed: number | null;
+  mastery: number;
+  lastReviewed: number | null;
 }
 
 export interface Paragraph {
@@ -33,7 +33,8 @@ export type Theme = 'light' | 'dark' | 'sepia';
 export type FontSize = 'sm' | 'base' | 'lg';
 export type ScriptFont = 'uthmani' | 'indopak' | 'latin-serif';
 export type Style = 'madani' | 'tajweed'; // Example styles
-export type View = 'reading' | 'quizConfig' | 'quiz' | 'import';
+// export type View = 'reading' | 'quizConfig' | 'quiz' | 'import';
+export type View = 'reading' | 'quizConfig' | 'quiz' | 'import' | 'importTxt';
 
 export interface SettingsState {
   theme: Theme;
@@ -42,7 +43,7 @@ export interface SettingsState {
   translationLanguage: string;
   scriptFont: ScriptFont;
   isRtl: boolean;
-  
+
   setTheme: (theme: Theme) => void;
   setFontSize: (size: FontSize) => void;
   toggleWordByWord: () => void;
@@ -52,14 +53,14 @@ export interface SettingsState {
 }
 
 export interface QuizConfig {
-    quizType: 'Vocabulary';
-    startParagraph: number;
-    endParagraph: number;
+  quizType: 'Vocabulary';
+  startParagraph: number;
+  endParagraph: number;
 }
 
 export interface FlashcardState {
-    cards: Flashcard[];
-    initializeDeck: (words: Word[]) => void;
-    updateCardMastery: (cardId: string, rating: 'again' | 'hard' | 'good' | 'easy') => void;
-    resetProgress: () => void;
+  cards: Flashcard[];
+  initializeDeck: (words: Word[]) => void;
+  updateCardMastery: (cardId: string, rating: 'again' | 'hard' | 'good' | 'easy') => void;
+  resetProgress: () => void;
 }

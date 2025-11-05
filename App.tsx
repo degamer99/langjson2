@@ -6,6 +6,7 @@ import ReadingView from './components/ReadingView';
 import FlashcardConfigView from './components/FlashcardConfigView';
 import FlashcardQuizView from './components/FlashcardQuizView';
 import ImportStoryView from './components/ImportStoryView';
+import ImportTxtView from './components/ImportTxtView'; // Import new component
 import { littlePrinceMock } from './data/mockData';
 import { useFlashcardStore } from './store/useFlashcardStore';
 
@@ -22,11 +23,11 @@ const App: React.FC = () => {
     html.classList.remove('light', 'dark', 'sepia');
     html.classList.add(theme);
     if (theme === 'dark') {
-        document.body.style.backgroundColor = '#121212';
+      document.body.style.backgroundColor = '#121212';
     } else if (theme === 'sepia') {
-        document.body.style.backgroundColor = '#f1e7d0';
+      document.body.style.backgroundColor = '#f1e7d0';
     } else {
-        document.body.style.backgroundColor = '#ffffff';
+      document.body.style.backgroundColor = '#ffffff';
     }
   }, [theme]);
 
@@ -50,6 +51,8 @@ const App: React.FC = () => {
     switch (view) {
       case 'import':
         return <ImportStoryView onImport={handleImportBook} onCancel={() => setView('reading')} />;
+      case 'importTxt':
+        return <ImportTxtView onImport={handleImportBook} onCancel={() => setView('reading')} />;
       case 'quizConfig':
         return <FlashcardConfigView book={book} onStartQuiz={handleStartQuiz} />;
       case 'quiz':
